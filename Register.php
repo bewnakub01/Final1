@@ -88,6 +88,8 @@
                                     <input type="password" name="password" class="form-control">
                                 </div>
                             </div>
+                            
+
                         
                         </div>
                         <div class="panel-footer">

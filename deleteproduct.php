@@ -4,7 +4,7 @@
 
     $pid = $_GET["pid"];
 
-    $sql = "DELETE FROM product WHERE id=$pid";
+    $sql = "DELETE FROM car WHERE id=$pid";
 
     $result=$con->query($sql);
     if(!$result){

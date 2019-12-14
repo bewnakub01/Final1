@@ -7,7 +7,7 @@
     else{
         $pid = $_GET['pid'];
     }
-    $sql="SELECT * FROM product WHERE id =$pid";
+    $sql="SELECT * FROM car WHERE id =$id";
     $result = $con->query($sql);
     if(!$result){
         echo "Error : " .$con->error;
@@ -32,25 +32,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jaidee Shop</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <title>Soi5 Used Cars</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/startmin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/startmin.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Jaidee Shop</a>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Soi 5 Used Cars</a>
+        </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> 
                 <ul class="nav navbar-nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Products</a></li>
+                    
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
@@ -71,6 +106,7 @@
                     </ul>
                     </li>
                     <li>
+                    
                         <a href="#">
                             <i class="glyphicon glyphicon-shopping-cart"></i> (0)
                         </a>
@@ -91,14 +127,16 @@
                 </ul>
             </div>
         </div>
+        
     </nav>
-
+    
+    </nav>
     <div class="container">
                     <h2>Edit Product</h2>
         <div class="row">
                     <div class="col-md-6">
                         <div class="thumbnail">
-                        <img src="img/product/<?php echo $prd->picture;?>" alt="">
+                        <img src="img/<?php echo $prd->carpic;?>" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -106,28 +144,40 @@
                 <div class="form-group">
                     <label for="name" class="control-label col-md-3">Name:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtName" class="form-control" value="<?php echo $prd->name;?>">
+                        <input type="text" name="txtName" class="form-control" value="<?php echo $prd->model;?>">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="description" class="control-label col-md-3">Description:</label>
+                    <label for="color" class="control-label col-md-3">color:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtDescription" class="form-control" value="<?php echo $prd->description;?>">
+                        <input type="text" name="txtcolor" class="form-control" value="<?php echo $prd->color;?>">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="control-label col-md-3">Price:</label>
+                    <label for="license" class="control-label col-md-3">license:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtPrice" class="form-control" value="<?php echo $prd->price;?>">
+                        <input type="text" name="txtlicense" class="form-control" value="<?php echo $prd->license;?>">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="stock" class="control-label col-md-3">Stock:</label>
+                    <label for="province" class="control-label col-md-3">province:</label>
                     <div class="col-md-9">
-                        <input type="text" name="txtStock" class="form-control" value="<?php echo $prd->unintInStock;?>">
+                        <input type="text" name="txtprovince" class="form-control" value="<?php echo $prd->province;?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="control-label col-md-3">province:</label>
+                    <div class="col-md-9">
+                        <input type="text" name="txtprice" class="form-control" value="<?php echo $prd->price;?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="postedBy" class="control-label col-md-3">province:</label>
+                    <div class="col-md-9">
+                        <input type="text" name="txtpostedBy" class="form-control" value="<?php echo $prd->postedBy;?>">
                     </div>
                 </div>
 
